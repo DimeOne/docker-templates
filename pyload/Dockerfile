@@ -9,17 +9,17 @@ RUN echo "deb http://deb.debian.org/debian stretch main contrib non-free" > /etc
   && echo "deb http://security.debian.org/ stretch/updates main contrib non-free" >> /etc/apt/sources.list \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    locale \
+    locales \
     gosu \
     wget \
-    nodejs \    
+    nodejs \
     unrar \
     p7zip-full \
     libssl-dev \
     libffi-dev \
     libev-dev \
     libxml2-dev \
-    libcurl4-openssl-dev \    
+    libcurl4-openssl-dev \
   && pip install \
     requests \
     pycurl \
