@@ -20,7 +20,7 @@ echo -e "${APP_USER}:x:${APP_UID}:${APP_GID}:pyload:/app:/bin/false\n" >> /etc/p
 echo -e "${APP_GROUP}:x:${APP_GID}:appuser\n" >> /etc/group
 
 mkdir -p "${APP_DATA_DIR}" "${APP_CONF_DIR}" "${APP_TMP_DIR}"
-chown -R ${APP_USER}:${APP_GROUP} "${APP_DATA_DIR}"
+chown -R ${APP_UID}:${APP_GID} "${APP_DATA_DIR}"
 
 mkdir -p "${APP_DOWNLOAD_DIR}"
 
