@@ -43,8 +43,8 @@ RUN echo "deb http://deb.debian.org/debian stretch main contrib non-free" > /etc
     bottle \
     colorama \
     gunicorn \
+    cherrypy>=3.0.8,<9.0.0 \
     wsgiserver \
-    pip install "cherrypy>=3.0.8,<9.0.0" \
   && rm -rf /var/lib/apt/lists/* \
   && locale-gen en_US.UTF-8
 
