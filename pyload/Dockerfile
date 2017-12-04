@@ -17,7 +17,7 @@ RUN echo "deb http://deb.debian.org/debian stretch main contrib non-free" > /etc
   && rm -rf /var/lib/apt/lists/*
 
 ADD requirements.txt /app/
-RUN pip install --no-cache /app/requirements.txt
+RUN pip install --no-cache -f /app/requirements.txt
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 RUN wget -q -O /pyload.tgz https://github.com/pyload/pyload/tarball/stable \
