@@ -9,7 +9,6 @@ pyxmpp
 thrift
 Send2Trash
 beautifulsoup
-django
 jinja2
 feedparser
 colorlog
@@ -18,5 +17,6 @@ markupsafe
 MultipartPostHandler
 bottle
 colorama
+django<2.0
 #tesseract
 #gunicorn
