@@ -17,14 +17,14 @@ RUN echo "deb http://deb.debian.org/debian stretch main contrib non-free" > /etc
   && rm -rf /var/lib/apt/lists/*
 
 ADD requirements.txt /app/requirements.txt
-RUN pip install --no-cache -f /app/requirements.txt
+RUN pip install --no-cache -r /app/requirements.txt
 
-ADD docker-entrypoint.sh /docker-entrypoint.sh
+ADD docker-entrypoint.sh /app/docker-entrypoint.sh
 RUN wget -q -O /pyload.tgz https://github.com/pyload/pyload/tarball/stable \
   && mkdir -p /app/pyload \
   && tar xzf /pyload.tgz -C /app/pyload --strip-components=1 \
   && rm -rf /pyload.tgz \
-  && chmod 755 /docker-entrypoint.sh
+  && chmod 755 /app/docker-entrypoint.sh
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
 CMD ["app:start"]
