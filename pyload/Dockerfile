@@ -1,4 +1,4 @@
-FROM python:2-stretch
+FROM python:2-slim-stretch
 
 RUN echo "deb http://deb.debian.org/debian stretch main contrib non-free" > /etc/apt/sources.list \
   && echo "deb http://deb.debian.org/debian stretch-updates main contrib non-free" >> /etc/apt/sources.list \
@@ -14,6 +14,7 @@ RUN echo "deb http://deb.debian.org/debian stretch main contrib non-free" > /etc
     libev-dev \
     libxml2-dev \
     libcurl4-openssl-dev \
+    gcc \
   && rm -rf /var/lib/apt/lists/*
 
 ADD requirements.txt /app/requirements.txt
