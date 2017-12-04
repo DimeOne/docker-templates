@@ -8,6 +8,14 @@ APP_TMP_DIR=${APP_DATA_DIR}/tmp
 APP_CONF_DIR=${APP_DATA_DIR}/config
 APP_DOWNLOAD_DIR=/download
 
+APP_USER=${APP_USER:-pyload}
+APP_GROUP=${APP_GROUP:-pyload}
+APP_UID=${UID:-1000}
+APP_GID=${GID:-1000}
+
+echo -e "${APP_USER}:x:${APP_UID}:${APP_GID}:pyload:/app:/bin/false\n" >> /etc/passwd
+echo -e "${APP_GROUP}:x:${APP_GID}:${APP_USER}\n" >> /etc/group
+
 if [ -f "${APP_TMP_DIR}/pyload.pid" ]; then
   rm "${APP_TMP_DIR}/pyload.pid"
 fi
