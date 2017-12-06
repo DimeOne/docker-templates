@@ -1,5 +1,9 @@
 FROM python:2-slim-stretch
 
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
 RUN echo "deb http://deb.debian.org/debian stretch main contrib non-free" > /etc/apt/sources.list \
   && echo "deb http://deb.debian.org/debian stretch-updates main contrib non-free" >> /etc/apt/sources.list \
   && echo "deb http://security.debian.org/ stretch/updates main contrib non-free" >> /etc/apt/sources.list \
@@ -15,6 +19,9 @@ RUN echo "deb http://deb.debian.org/debian stretch main contrib non-free" > /etc
     libxml2-dev \
     libcurl4-openssl-dev \
     gcc \
+    locales \
+  && echo en_US.UTF-8 UTF-8 > /etc/locales.gen \
+  && locale-gen \
   && rm -rf /var/lib/apt/lists/*
 
 ADD requirements.txt /app/requirements.txt
